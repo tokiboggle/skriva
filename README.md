@@ -16,7 +16,7 @@ skriva interview_01.mp3                 # both models, one after the other
 skriva --model wav2vec2 *.m4a           # only wav2vec2
 skriva --model whisper interview_01.mp3 # only Whisper
 ```
-Next to each audio file you get `interview_01.txt` (wav2vec2) and `interview_01.whisper.txt` (Whisper). No punctuation or speaker labels; always proofread.
+Next to each audio file you get `interview_01.wav2vec.txt` (wav2vec2) and `interview_01.whisper.txt` (Whisper). No punctuation or speaker labels; always proofread.
 
 ## Credits
 Models by Carlos Daniel Hernández Mena, both licensed CC BY 4.0, trained on the Ravnur Faroese speech corpus:

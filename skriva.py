@@ -3,7 +3,7 @@
 
 Usage: skriva [--model wav2vec2|whisper|both] file1.mp3 [file2.m4a ...]
 Default runs both models, one after the other, and writes next to each audio file:
-  <name>.txt          wav2vec2 Faroese
+  <name>.wav2vec.txt  wav2vec2 Faroese
   <name>.whisper.txt  small Faroese Whisper
 Audio never leaves this computer."""
 import os, re, sys, time, subprocess
@@ -51,7 +51,7 @@ def main():
         if args[i].startswith("--model="): which = args[i].split("=", 1)[1]; i += 1; continue
         files.append(args[i]); i += 1
     if which not in ("both", "wav2vec2", "whisper"): sys.exit("skriva: --model must be wav2vec2, whisper or both")
-    jobs = [("wav2vec2", run_wav2vec2, ".txt"), ("whisper", run_whisper, ".whisper.txt")]
+    jobs = [("wav2vec2", run_wav2vec2, ".wav2vec.txt"), ("whisper", run_whisper, ".whisper.txt")]
     for f in files:
         if not os.path.isfile(f): print(f"skriva: not found: {f}", file=sys.stderr); continue
         audio = load_audio(f)
